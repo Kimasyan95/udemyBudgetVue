@@ -1,6 +1,6 @@
 <template>
   <div id="app">  
-    <BudgetList v-bind:list="list"/>
+    <BudgetList v-bind:list="list" v-on:deleteFromList="deleteProp"/>
   </div>
 </template>
 
@@ -28,6 +28,11 @@ export default {
       },
     }
   }),
+  methods: {
+    deleteProp(id) {
+      this.$delete(this.list, id)
+    }
+  }
 }
 </script>
 
