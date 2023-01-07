@@ -5,7 +5,7 @@
         <div class="list-item" v-for="(item, prop) in list" v-bind:key="prop">
           <span class="budget-comment"> {{ item.comment }}</span>
           <span class="budget-value"> {{ item.value }} </span>
-          <ElButton type="danger" size="mini" v-on:click="deleteValue(item.id)">Delete</ElButton>
+          <ElButton type="danger" size="mini" v-on:click="deleteItem(item.id)">Delete</ElButton>
         </div>
       </template>
       <ElAlert v-else type="info" v-bind:title="emptyTitle" v-bind:closable="false"></ElAlert>
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    deleteValue(id) {
+    deleteItem(id) {
       this.$emit('deleteFromList', id)
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="total-value">
-    <h2>BALANCE: {{ countTotal }}</h2>
+    Balance: {{ total }}
   </div>
 </template>
 
@@ -10,24 +10,19 @@ export default {
   data: () => ({
   }),
   props: {
-    totalList: {
-      type: Object,
-      default: () => ({}),
+    total: {
+      type: Number,
+      default: 0,
     },
   },
-  computed: {
-    countTotal() {
-      let total = 0;
-
-      for (let key in this.totalList) {
-        total += this.totalList[key].value
-      }
-
-      return total;
-    }
-  }
 };
 </script>
 
 <style scoped>
+.total-value {
+  font-size: 26px;
+  text-transform: uppercase;
+  padding: 20px;
+  text-align: center;
+}
 </style>
