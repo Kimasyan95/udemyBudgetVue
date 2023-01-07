@@ -1,16 +1,19 @@
 <template>
   <div id="app">  
+    <TotalBalance v-bind:totalList="list"/>
     <BudgetList v-bind:list="list" v-on:deleteFromList="deleteProp"/>
   </div>
 </template>
 
 <script>
 import BudgetList from './components/BudgetList.vue'
+import TotalBalance from './components/TotalBalance.vue'
 
 export default {
   name: 'App',
   components: {
-    BudgetList
+    BudgetList,
+    TotalBalance
   },
   data: () => ({
     list: { //список расходов и доходов
