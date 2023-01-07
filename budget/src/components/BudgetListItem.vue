@@ -31,8 +31,11 @@ export default {
   },
   methods: {
     deleteListItem(id) {
-      this.$emit('deleteItemFromList', id)
-    }
+      let result = confirm('Вы действительно хотите удалить?');
+      if (result) {
+        this.$emit('deleteItemFromList', id)
+      }
+    },
   }
 };
 </script>

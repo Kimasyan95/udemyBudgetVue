@@ -1,5 +1,5 @@
 <template>
-  <div class="total-value">
+  <div class="total-value" v-bind:class="setClass">
     Balance: {{ total }}
   </div>
 </template>
@@ -15,6 +15,15 @@ export default {
       default: 0,
     },
   },
+  computed: {
+    setClass() {
+      return {
+        'green': this.total > 1,
+        'red': this.total < 1,
+        'black': this.total === 0,
+      }
+    }
+  },
 };
 </script>
 
@@ -24,5 +33,17 @@ export default {
   text-transform: uppercase;
   padding: 20px;
   text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.black {
+  color: initial;
 }
 </style>

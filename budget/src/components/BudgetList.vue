@@ -22,7 +22,7 @@ export default {
     deleteItem(id) {
       this.$emit('deleteFromList', id)
     },
-  }
+  },
 };
 </script>
 

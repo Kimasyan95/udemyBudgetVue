@@ -5,7 +5,7 @@
       <ElFormItem label="Type" prop="type">
         <ElSelect class="type-select" v-model="formData.type" placeholder="Choose type...">
           <ElOption label="Income" value="INCOME" />
-          <ElOption label="Outcome" value="OUTCOME" />
+          <ElOption label="Outcome" value="OUTCOME"/>
         </ElSelect>
       </ElFormItem>
       <ElFormItem label="Comments" prop="comment">
@@ -46,11 +46,14 @@ export default {
     onSubmit() {
       this.$refs.addItemForm.validate(valid => {
         if (valid) {
+          if (this.formData.type === 'OUTCOME') {
+            this.formData.value = -this.formData.value;
+          }
           this.$emit('submitForm', {...this.formData});
           this.$refs.addItemForm.resetFields() // метод element UI
         }
       })
-    }
+    },
   }
 };
 </script>
