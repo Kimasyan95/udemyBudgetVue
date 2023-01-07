@@ -16,8 +16,6 @@ export default {
     },
   },
 };
-
-fetch('el.json').then(data => console.log(data))
 </script>
 
 <style scoped>

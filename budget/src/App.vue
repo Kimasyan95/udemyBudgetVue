@@ -16,7 +16,7 @@ export default {
   components: {
     BudgetList,
     TotalBalance,
-    FormBlock
+    FormBlock,
   },
   data: () => ({
     list: { //список расходов и доходов
