@@ -19,7 +19,7 @@ export default {
     FormBlock,
   },
   data: () => ({
-    list: { //список расходов и доходов
+    list: {
       1: {
         type: 'INCOME',
         value: 100,

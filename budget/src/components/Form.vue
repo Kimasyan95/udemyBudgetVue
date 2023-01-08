@@ -1,7 +1,6 @@
 <template>
   <ElCard class="form-card">
     <ElForm v-bind:model="formData" ref="addItemForm" v-bind:rules="rules" label-position="top">
-      <!-- (Element Ui)ref используется чтобы добавить имя компоненту и менять его  -->
       <ElFormItem label="Type" prop="type">
         <ElSelect class="type-select" v-model="formData.type" placeholder="Choose type...">
           <ElOption label="Income" value="INCOME" />
@@ -13,7 +12,6 @@
       </ElFormItem>
       <ElFormItem label="Value" prop="value">
         <ElInput v-model.number="formData.value" />
-        <!-- .number сразу приводит к числу -->
       </ElFormItem>
       <ElButton v-on:click="onSubmit" type="primary">Submit</ElButton>
     </ElForm>
@@ -50,7 +48,7 @@ export default {
             this.formData.value = -this.formData.value;
           }
           this.$emit('submitForm', {...this.formData});
-          this.$refs.addItemForm.resetFields() // метод element UI
+          this.$refs.addItemForm.resetFields()
         }
       })
     },

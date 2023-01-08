@@ -4,6 +4,8 @@
       <div class="list-item" v-for="(item, prop) in list" v-bind:key="prop">
         <span class="budget-comment"> {{ item.comment }}</span>
         <span class="budget-value"> {{ item.value }} </span>
+        <i class="el-icon-top" v-if="item.type === 'INCOME'"></i>
+        <i class="el-icon-bottom" v-else></i>
         <ElButton type="danger" size="mini" v-on:click="deleteListItem(item.id)">Delete</ElButton>
       </div>
     </template>
@@ -27,7 +29,7 @@ export default {
   computed: {
     isEmpty() {
       return !Object.keys(this.list).length;
-    }
+    },
   },
   methods: {
     deleteListItem(id) {
@@ -52,5 +54,9 @@ export default {
   font-weight: bold;
   margin-left: auto;
   margin-right: 20px;
+}
+
+i {
+  margin-right: 10px;
 }
 </style>
